@@ -1,0 +1,256 @@
+/* ============================================================
+   The Pottery Collection — Chapbook Stylesheet
+   A classic typesetting style suited to printed poetry books.
+   ============================================================ */
+
+/* ---------- Web fonts (system stack) ---------- */
+:root {
+  --serif: "Georgia", "Times New Roman", Times, serif;
+  --sans:  "Helvetica Neue", Arial, sans-serif;
+  --mono:  "Courier New", Courier, monospace;
+
+  /* Typographic scale */
+  --text-base:   1.125rem;   /* 18px at default zoom */
+  --leading:     1.75;
+
+  /* Palette — earthy, muted tones evoking stoneware */
+  --ink:         #2b2319;
+  --paper:       #f7f3ed;
+  --rule:        #c8b99a;
+  --accent:      #7a5c3e;
+  --muted:       #9b8b79;
+
+  /* Page geometry */
+  --page-width:  38rem;
+  --page-pad:    3rem;
+}
+
+/* ---------- Reset & base ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background: #e8e0d4;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: var(--text-base);
+  line-height: var(--leading);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Chapbook wrapper ---------- */
+.chapbook {
+  max-width: var(--page-width);
+  margin: 2rem auto 4rem;
+  padding: 0;
+}
+
+/* ---------- Individual "page" block ---------- */
+.page {
+  background: var(--paper);
+  padding: var(--page-pad) calc(var(--page-pad) * 1.25);
+  margin-bottom: 0.25rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,.10);
+  min-height: 28rem;
+  position: relative;
+}
+
+/* ---------- Cover / title page ---------- */
+.page--cover {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 38rem;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.cover__title {
+  font-size: 2.4rem;
+  font-weight: normal;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: .4rem;
+}
+
+.cover__subtitle {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--rule);
+  margin-bottom: 3rem;
+}
+
+.cover__rule {
+  width: 4rem;
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 0 auto 2.5rem;
+}
+
+.cover__author {
+  font-size: .85rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: .5rem;
+}
+
+.cover__year {
+  font-size: .8rem;
+  color: var(--muted);
+}
+
+/* ---------- Epigraph page ---------- */
+.page--epigraph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 22rem;
+}
+
+.epigraph__text {
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--accent);
+  max-width: 26rem;
+  line-height: 1.9;
+}
+
+/* ---------- Table of contents ---------- */
+.page--toc h2 {
+  font-size: .75rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: normal;
+  margin-bottom: 1.8rem;
+  padding-bottom: .5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.toc__list {
+  list-style: none;
+}
+
+.toc__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: .45rem 0;
+  border-bottom: 1px dotted var(--rule);
+  font-size: .95rem;
+}
+
+.toc__item:last-child {
+  border-bottom: none;
+}
+
+.toc__title {
+  font-style: italic;
+}
+
+.toc__num {
+  font-size: .8rem;
+  color: var(--muted);
+  font-style: normal;
+}
+
+/* ---------- Poem pages ---------- */
+.page--poem {
+}
+
+.poem__number {
+  font-size: .7rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.2rem;
+  display: block;
+}
+
+.poem__title {
+  font-size: 1.5rem;
+  font-weight: normal;
+  font-style: italic;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  padding-bottom: .8rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.poem__body {
+  font-size: 1rem;
+  line-height: 2;
+  white-space: pre-wrap;       /* preserve line breaks */
+  font-family: var(--serif);
+}
+
+.poem__body .stanza {
+  margin-bottom: 1.5em;
+}
+
+.poem__body .stanza:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Colophon ---------- */
+.page--colophon {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 3rem;
+  min-height: 18rem;
+}
+
+.colophon__rule {
+  width: 3rem;
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin-bottom: 1.5rem;
+}
+
+.colophon__text {
+  font-size: .78rem;
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+/* ---------- Print styles ---------- */
+@media print {
+  body { background: white; }
+  .chapbook { margin: 0 auto; max-width: none; }
+
+  .page {
+    box-shadow: none;
+    margin-bottom: 0;
+    page-break-after: always;
+    min-height: 0;
+    background: white;
+  }
+
+  .page--cover {
+    background: var(--ink);
+    color: var(--paper);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    min-height: 100vh;
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  :root {
+    --page-pad:    1.5rem;
+    --text-base:   1rem;
+  }
+  .cover__title { font-size: 1.8rem; }
+  .poem__title  { font-size: 1.25rem; }
+}
