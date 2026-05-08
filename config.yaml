@@ -1,0 +1,23 @@
+document:
+  title: "My Pottery Collection"
+  author: ""
+  font_size: 10
+  paper: letterpaper
+
+geometry:
+  top: "1in"
+  bottom: "1in"
+  inner: ".3in"
+  outer: ".7in"
+
+layout:
+  twoside: true
+  trim_width: "6in" # 6
+  trim_height: "9in" # 9
+
+style:
+  font: courier         # palatino | garamond | times | default
+  include_toc: true
+  poem_title_align: center # left | center
+  stanza_skip: "0.8em"
+  spread: 1.1

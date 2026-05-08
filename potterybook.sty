@@ -1,0 +1,82 @@
+\ProvidesPackage{potterybook}[2026/05/08 Poetry book styles]
+
+% ---------------------------------------------------------------------------
+% Packages
+% ---------------------------------------------------------------------------
+\RequirePackage{verse}
+\RequirePackage{microtype}
+\RequirePackage{setspace}
+\RequirePackage{titlesec}
+\RequirePackage{emptypage}
+\RequirePackage{tocloft}
+\RequirePackage{changepage}
+\RequirePackage[hidelinks, pdfpagelayout=TwoPageRight]{hyperref}
+\RequirePackage{fancyhdr}
+
+% ---------------------------------------------------------------------------
+% Page numbers: top-right on odd pages, top-left on even pages
+% ---------------------------------------------------------------------------
+\fancyhf{}
+\fancyhead[RO]{\thepage}
+\fancyhead[LE]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\pagestyle{fancy}
+% Part opening pages use the plain style; clear it so no folio appears there.
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}}
+
+% ---------------------------------------------------------------------------
+% Table of contents
+% Indents are relative to the adjustwidth block (centre 2/3), not full textwidth.
+% ---------------------------------------------------------------------------
+\renewcommand{\cftpartdotsep}{\cftdotsep}
+\renewcommand{\cftchapdotsep}{\cftdotsep}
+\setlength{\cftpartindent}{0pt}
+\setlength{\cftpartnumwidth}{0pt}
+\setlength{\cftchapindent}{1.5em}
+\setlength{\cftchapnumwidth}{0pt}
+\setlength{\cftbeforepartskip}{0.4em}
+\setlength{\cftbeforechapskip}{0.1em}
+\makeatletter
+\renewcommand{\@tocrmarg}{2.5em}
+\makeatother
+% TOC title: same size as front-matter headings
+\renewcommand{\cfttoctitlefont}{\normalfont\large\bfseries}
+\setlength{\cftbeforetoctitleskip}{0pt}
+\setlength{\cftaftertoctitleskip}{1ex}
+
+% ---------------------------------------------------------------------------
+% Page layout
+% ---------------------------------------------------------------------------
+% Slack accumulates at page bottom rather than between poem title and first line.
+\raggedbottom
+% No paragraph indent; inter-paragraph spacing for front-matter prose.
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.8em}
+
+% ---------------------------------------------------------------------------
+% Verse package extensions
+% ---------------------------------------------------------------------------
+% Poems appear at chapter level in the TOC so they nest under parts.
+\renewcommand{\poemtoc}{chapter}
+
+% Keep title glued to the opening line: redefine only the internal typesetter
+% so that \poemtitle's TOC entry, \phantomsection, and \secdef dispatch are
+% left untouched.
+\makeatletter
+\renewcommand{\@vstypeptitle}[1]{%
+  \vspace{\beforepoemtitleskip}%
+  {\poemtitlefont #1\par\nopagebreak[4]}%
+  \vspace{\afterpoemtitleskip}\nopagebreak[4]%
+}
+\makeatother
+
+% ---------------------------------------------------------------------------
+% Front-matter section headings (non-page-breaking, same weight as poem titles)
+% ---------------------------------------------------------------------------
+\newcommand{\fmsection}[1]{{\normalfont\large\bfseries #1}\par\nopagebreak}
+
+% ---------------------------------------------------------------------------
+% Part format: centred title, no label, suppressed folio via titlesec after-code
+% ---------------------------------------------------------------------------
+\titleformat{\part}[display]{\centering\LARGE\bfseries}{}{0em}{}[\thispagestyle{empty}]
+\titlespacing*{\part}{0pt}{*8}{*6}
