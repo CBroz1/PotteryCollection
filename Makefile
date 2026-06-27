@@ -17,10 +17,11 @@ all: main.tex | aux
 	$(MAKE) $(PRINT)
 
 # Two 6×9 pages imposed side-by-side on a 12×9 landscape sheet.
-# Page 1 (title) is skipped — it has no natural pair and shifts all subsequent spreads.
+# A leading '{}' inserts a blank page so the title page sits on the right
+# (recto) of the first spread, mirroring how it would appear in the bound book.
 $(SPREAD): $(TARGET)
 	pdfjam --nup 2x1 --noautoscale true --papersize '{12in,9in}' \
-	       $(TARGET) '2-' -o $(SPREAD)
+	       $(TARGET) '{},1-' -o $(SPREAD)
 
 # Saddle-stitch imposition for center-fold binding.
 # pdfjam --booklet true reorders pages so that printing double-sided and folding
