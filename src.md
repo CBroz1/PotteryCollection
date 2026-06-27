@@ -57,7 +57,7 @@ Content by piece title.
 Through my nascent eyes,
 the world is blaringly new.
 Every shape and intricacy
-inspire utmost attention,
+inspires utmost attention,
 awe from each new insight,
 and excitement to fold clay,
 gifted to doting caretakers.
@@ -141,7 +141,7 @@ but, in his lectures and deeds, he transferred each Verse,
 like rules carved into a wooden placard hung above my subconscious.
 
 Verse One: Honor Thy Commitments.
-I was an uncoordinated rookie in a unfamiliar sport,
+I was an uncoordinated rookie in an unfamiliar sport,
 frustratingly kicking a ball offsides
 under laser scrutiny of bullying masculinity.
 But, somehow, at his discretion,
@@ -205,10 +205,10 @@ my mom got to say goodbye like she wanted.
 
 I'm twelve.
 My school crush tells me she wants to cut herself.
-I tell her best friend and the guidance councilor.
+I tell her best friend and the guidance councelor.
 There are rumored cruel whispers.
 My parents say I did the right thing.
-Everyone says its a cry for help.
+Everyone says it's a cry for help.
 They don't seem to be helping.
 
 I'm sixteen.
@@ -292,7 +292,7 @@ and contemplative solace
 borne from vast eternity.
 My pained doubt was chided,
 learning from dusty pages
-in an dirty cruel world.
+in a dirty cruel world.
 
 Now, I sit alone
 with rhythmic needle.
