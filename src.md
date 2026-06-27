@@ -403,7 +403,7 @@ you were destined to show the world.
 You needed me there, you said,
 demanding warrior's attention in hostile home
 to fight suicidal infection,
-resenting my please for shift change,
+resenting my pleas for shift change,
 under barrage of steroidal anger.
 You never took responsibility.
 
